@@ -1,0 +1,81 @@
+<html>
+	<body>
+		<div id="app"></div>
+
+		<!-- <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script type="text/jsx">
+			const domNode = document.getElementById('app');
+			const root = ReactDOM.createRoot(domNode);
+			root.render(<h1>Develop. Preview. Ship.</h1>)
+		</script> -->
+
+
+		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script type="text/jsx">
+			const app = document.getElementById('app');
+
+			function createTitle(title) {
+				if (title) {
+					return title;
+				} else {
+					return 'Default title';
+				}
+			}
+
+			function Header({ title }) {
+				console.log(title);
+				return <h1>{ createTitle(title) }</h1>;
+			}
+
+			function Article() {
+				return (
+					<p>
+						This is Article ...
+					</p>
+				)
+			}
+
+			function Fotter() {
+				return (
+					<p>
+						---- fotter ----
+					</p>
+				)
+			}
+
+			function HomePage() {
+				const name = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+				const [likes, setLikes] = React.useState(0);
+
+				function handleClick() {
+					setLikes(likes + 1);
+				}
+
+				return (
+					<div>
+						<Header title="React" />
+						<ul>
+							{name.map((name) => (
+								<li key={name}> {name} </li>
+							))}
+						</ul>
+						<button onClick={handleClick}>Like({ likes})</button>
+
+						<Article />
+						<Fotter />
+					</div>
+				);
+			}
+
+			const root = ReactDOM.createRoot(app);
+			root.render(<h1>Develop. Preview. Ship.</h1>);
+
+			root.render(<HomePage />);
+		</script>
+
+	</body>
+</html>
